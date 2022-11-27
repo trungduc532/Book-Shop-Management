@@ -1,0 +1,37 @@
+package connection.database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import common.BookKey;
+import common.DTRExceptionDetail;
+
+public class ConnectionDB {
+	private static final String connectionUrl = "jdbc:sqlserver://DESKTOP-ARCLLSG\\SQLEXPRESS:1433;"
+			+ "database=" + BookKey.DATABASE_NAME + ";" 
+			+ "user=sa;" 
+			+ "password=" + BookKey.DB_PASSWORD + ";" 
+			+ "encrypt=false;"
+			+ "trustServerCertificate=false;" 
+			+ "loginTimeout=30;";
+
+	public static Connection getConnectDatabase() throws Exception {
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(connectionUrl);
+		} catch (Exception e) {
+			System.out.println("DATABASE CONNECT NOT SET");
+			throw e;
+		}
+		return conn;
+	}
+
+	public static void closeConnectionDate(Connection conn) {
+		try {
+			if (conn != null) {
+				conn.close();
+			}
+		} catch (final Exception e) {
+			System.out.println(DTRExceptionDetail.DATABASE_EXCEPTION);
+		}
+	}
+}
