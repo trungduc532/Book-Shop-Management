@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import connection.database.ConnectionDB;
 import model.Book;
 
 /**
@@ -53,11 +52,12 @@ public class BookSearch {
 				book.setPublishYear(rs.getDate(columnIndex++));
 				book.setPublisher(rs.getString(columnIndex++));
 				book.setPrice(rs.getFloat(columnIndex++));
+				return book;
 			}
 		} finally {
-			ConnectionDB.closeConnectionDate(conn);
+			System.out.print("");
 		}
-		return book;
+		return null;
 	}
 	
 	/**
@@ -93,21 +93,30 @@ public class BookSearch {
 				book.setPublisher(rs.getString(columnIndex++));
 				book.setPrice(rs.getFloat(columnIndex++));
 				listBook.add(book);
+				columnIndex = 1;
 			}
+			return listBook;
 		} finally {
-			ConnectionDB.closeConnectionDate(conn);
+			System.out.print("");
 		}
-		return listBook;
 	}
 	
+	/**
+	 * Search by book title and author
+	 * @param conn
+	 * @param title
+	 * @param author
+	 * @return
+	 * @throws SQLException
+	 */
 	public static final Book searchByTitleAndAuthor(Connection conn, String title, String author) throws SQLException {
 		final Book book = new Book();
 		StringBuilder query = new StringBuilder();
 		query.append("SELECT * ");
 		query.append("FROM ");
-		query.append("BOOK_INFORMATION bi");
-		query.append("WHERE bi.TITLE = ? ,");
-		query.append("bi.AUTHOR = ? ");
+		query.append("BOOK_INFORMATION ");
+		query.append("WHERE TITLE = ? ,");
+		query.append(" AUTHOR = ? ");
 		query.append(";");
 
 		PreparedStatement ps = null;
@@ -126,10 +135,12 @@ public class BookSearch {
 				book.setPublishYear(rs.getDate(columnIndex++));
 				book.setPublisher(rs.getString(columnIndex++));
 				book.setPrice(rs.getFloat(columnIndex++));
+				return book;
 			}
 		} finally {
-			ConnectionDB.closeConnectionDate(conn);
+			System.out.print("");
 		}
-		return book;
+		return null;
 	}
+
 }

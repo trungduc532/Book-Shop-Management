@@ -88,5 +88,15 @@ public class Book {
 				+ publisher + ", PUBLISH YEAR= " + publishYear + ", PRICE= " + price);
 	}
 	
+	/**
+	 * Show info with param >  1. Beatifull screen
+	 * @param n
+	 */
+	public void showInfo(int n) {
+		// TO DO: after
+		System.out.println("BOOK ID= " + bookId + ", TITLE= " + title + ", AUTHOR= " + author + ", TYPE= " + type + ", PUBLISHER= "
+				+ publisher + ", PUBLISH YEAR= " + publishYear + ", PRICE= " + price);
+	}
+	
 	
 }

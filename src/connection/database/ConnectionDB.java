@@ -19,7 +19,7 @@ public class ConnectionDB {
 		try {
 			conn = DriverManager.getConnection(connectionUrl);
 		} catch (Exception e) {
-			System.out.println("DATABASE CONNECT NOT SET");
+			System.out.println(DTRExceptionDetail.DATABASE__CONNECT_NOT_SET);
 			throw e;
 		}
 		return conn;
