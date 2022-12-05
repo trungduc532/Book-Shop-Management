@@ -84,8 +84,10 @@ public class Book {
 	}
 
 	public void showInfo() {
-		System.out.println("BOOK ID= " + bookId + ", TITLE= " + title + ", AUTHOR= " + author + ", TYPE= " + type + ", PUBLISHER= "
-				+ publisher + ", PUBLISH YEAR= " + publishYear + ", PRICE= " + price);
+		System.out.println("***");
+		System.out.println("BOOK ID= " + bookId + ", TITLE= " + title + ", AUTHOR= " + author + ",\nTYPE= " + type + ", PUBLISHER= "
+				+ publisher + ", PUBLISH YEAR= " + publishYear + ", PRICE= " + price + "; ");
+		System.out.println("***");
 	}
 	
 	/**

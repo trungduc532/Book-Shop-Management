@@ -1,47 +1,52 @@
 package app;
 
-import java.sql.Connection;
-import java.util.List;
 import java.util.Scanner;
 
-import connection.database.ConnectionDB;
-import controller.BookManagement;
-import controller.BookSearch;
+import action.system.CommonHandle;
+import action.system.HandleCartItem;
+import action.system.HandleChoiceBook;
+import action.system.HandleCustomer;
+import action.system.HandleShoppingCart;
 import menu.Menu;
-import model.Book;
 
 public class BookShopApp {
-	private static Scanner scanner = new Scanner(System.in);
+
+	private static final Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
 
 		try {
-			Connection conn = ConnectionDB.getConnectDatabase();
 			/**
-			 * Prepare data 1. Create BOOK_INFORMATION table on db 2. Add data in table:
-			 * Copy from Data.txt file and run statement below
+			 * Prepare data 
+			 * 1. Create BOOK_INFORMATION table on db <br>
+			 * 2. Add data in table: Copy from Data.txt file and run statement below <br>
 			 */
-			// BookManagement.addAListBookFromConsole(conn);
+			// BookManagement.addAListBookFromConsole(conn);  // In the first one, remove comment to set default value.
+			
+			// Run
 			while (true) {
 				Menu.menuSystem();
-				System.out.print("INPUT YOUR CHOICE: ");
-				Integer.parseInt(scanner.nextLine());
-
-				List<Book> listBook = BookSearch.searchByBookTitle(conn, "CHET VI CHUNG KHOAN");
-				for (Book book : listBook) {
-					book.showInfo();
+				int choice = CommonHandle.inputChoice();
+				switch (choice) {
+					case 1:
+						HandleCustomer.handleRequestToCustomer();
+						break;
+					case 2:
+						HandleChoiceBook.handleRequestWithBook();
+						break;
+					case 3: 
+						HandleCartItem.handleRequestToCartItem();
+						break;
+					case 4:
+						HandleShoppingCart.handleRequestShoppingCart();
+						break;
+					default:
+						System.out.println("CHOICE INCORECT.");
+						System.out.print("DO YOU WANT TO CONTINUE? (Y/N): ");
+						String answer = scanner.nextLine();
+						if(answer.equalsIgnoreCase("n"))
+							break;
 				}
 			}
-//			BookManagement.addAListBookFromConsole(conn);
-//			BookManagement.update(conn, 16);
-
-//			BookManagement.addBook(conn);
-//			BookManagement.showInfoBook(conn, 1);
-//			BookManagement.deleteBook(conn, 2);
-//			for (int i = 1; i < 3; i++) {
-//				BookManagement.showInfoBook(conn, i);
-//			}
-//			ConnectionDB.closeConnectionDate(conn);
-			
 		} catch (final Exception e) {
 			e.printStackTrace();
 		}

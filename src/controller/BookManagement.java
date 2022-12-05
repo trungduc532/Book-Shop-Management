@@ -6,18 +6,15 @@ package controller;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
-import common.BookKey;
-import connection.database.ConnectionDB;
+import common.DtrKey;
 import model.Book;
 
 /**
@@ -169,7 +166,7 @@ public class BookManagement {
 					ps.setString(bindIndex++, listItem[1]);
 					ps.setString(bindIndex++, listItem[2]);
 
-					SimpleDateFormat format = new SimpleDateFormat(BookKey.FORMAT_DATE);
+					SimpleDateFormat format = new SimpleDateFormat(DtrKey.FORMAT_DATE);
 					java.util.Date date = format.parse(listItem[3]);
 					java.sql.Date sqlDate = new Date(date.getTime());
 
@@ -196,21 +193,21 @@ public class BookManagement {
 	 */
 	private static Book createBook() {
 		Book book = new Book();
-		System.out.print(BookKey.BOOK_TITLE + ": ");
+		System.out.print(DtrKey.BOOK_TITLE + ": ");
 		book.setTitle(scanner.nextLine().toUpperCase().trim());
-		System.out.print(BookKey.BOOK_AUTHOR + ": ");
+		System.out.print(DtrKey.BOOK_AUTHOR + ": ");
 		book.setAuthor(scanner.nextLine().toUpperCase().trim());
-		System.out.print(BookKey.BOOK_TYPE + ": ");
+		System.out.print(DtrKey.BOOK_TYPE + ": ");
 		book.setType(scanner.nextLine().toUpperCase().trim());
-		System.out.print(BookKey.BOOK_PUBLISHER + ": ");
+		System.out.print(DtrKey.BOOK_PUBLISHER + ": ");
 		book.setPublisher(scanner.nextLine().toUpperCase().trim());
 
 		// INPUT PUBLISH_YEAR
-		SimpleDateFormat format = new SimpleDateFormat(BookKey.FORMAT_DATE);
+		SimpleDateFormat format = new SimpleDateFormat(DtrKey.FORMAT_DATE);
 		System.out.println("Enter date and time in the format yyyy-MM-dd");
 		java.util.Date date = null;
 		while (date == null) {
-			System.out.print(BookKey.BOOK_PUBLISH_YEAR + ": ");
+			System.out.print(DtrKey.BOOK_PUBLISH_YEAR + ": ");
 			String line = scanner.nextLine().toUpperCase().trim();
 			try {
 
@@ -218,10 +215,10 @@ public class BookManagement {
 				java.sql.Date sqlDate = new Date(date.getTime());
 				book.setPublishYear(sqlDate);
 			} catch (ParseException e) {
-				System.out.print(BookKey.BOOK_PUBLISH_YEAR + "AGAIN: ");
+				System.out.print(DtrKey.BOOK_PUBLISH_YEAR + "AGAIN: ");
 			}
 		}
-		System.out.print(BookKey.PRICE + ": ");
+		System.out.print(DtrKey.PRICE + ": ");
 		book.setPrice(Float.parseFloat(scanner.nextLine()));
 
 		return book;
@@ -306,7 +303,7 @@ public class BookManagement {
 		book.setType(scanner.nextLine().trim().toUpperCase());
 		System.out.print("NEW PUBLISHER: ");
 		book.setPublisher(scanner.nextLine().trim().toUpperCase());
-		SimpleDateFormat format = new SimpleDateFormat(BookKey.FORMAT_DATE);
+		SimpleDateFormat format = new SimpleDateFormat(DtrKey.FORMAT_DATE);
 		System.out.println("Enter date and time in the format yyyy-MM-dd");
 		java.util.Date date = null;
 		while (date == null) {

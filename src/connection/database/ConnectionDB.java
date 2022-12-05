@@ -2,14 +2,14 @@ package connection.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import common.BookKey;
+import common.DtrKey;
 import common.DTRExceptionDetail;
 
 public class ConnectionDB {
 	private static final String connectionUrl = "jdbc:sqlserver://DESKTOP-ARCLLSG\\SQLEXPRESS:1433;"
-			+ "database=" + BookKey.DATABASE_NAME + ";" 
+			+ "database=" + DtrKey.DATABASE_NAME + ";" 
 			+ "user=sa;" 
-			+ "password=" + BookKey.DB_PASSWORD + ";" 
+			+ "password=" + DtrKey.DB_PASSWORD + ";" 
 			+ "encrypt=false;"
 			+ "trustServerCertificate=false;" 
 			+ "loginTimeout=30;";

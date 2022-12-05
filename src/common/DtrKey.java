@@ -1,7 +1,8 @@
 package common;
 
-public class BookKey {
+public class DtrKey {
 	
+	// Book Key
 	public static final String BOOK_ID = "BOOK_ID";
 	public static final String BOOK_TITLE  = "BOOK_TITLE";
 	public static final String BOOK_AUTHOR = "AUTHOR";
@@ -12,6 +13,12 @@ public class BookKey {
 	
 	public static final String FORMAT_DATE = "yyyy-MM-dd";
 	
+	// Customer key
+	public static final String CUSTOMER_NAME = "CUSTOMER_NAME";
+	public static final String CUSTOMER_USER_NAME = "CUSTOMER_USER_NAME";
+	public static final String CUSTOMER_PASSWORD = "CUSTOMER_PASSWORD";
+	public static final String SHIPPING_ADDRESS = "SHIPPING_ADDRESS";
+	public static final String BILLING_ADDRESS = "BILLING_ADDRESS";
 	
 	// database information
 	public static final String DATABASE_NAME = "BookShop";

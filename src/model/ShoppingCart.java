@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-import common.BookKey;
+import common.DtrKey;
 
 public class ShoppingCart {
 	private int cartId;
@@ -45,7 +45,7 @@ public class ShoppingCart {
 		int count = 0;
 		for (ShoppingCart shopingCart : shoppingCart) {
 			if(shopingCart.getCartId() == cartId) {
-				BookKey.printInfo();
+				DtrKey.printInfo();
 				System.out.printf("|%12s|%20s|%12s|%20s|%20|", cartId, customer, shippingFee, total, paymentMethod);
 				count++;
 			} 
