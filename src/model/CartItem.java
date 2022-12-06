@@ -1,7 +1,14 @@
+/**
+ * 59102901
+ */
 package model;
 
-import java.util.Scanner;
-
+/**
+ * Cart Item
+ * 
+ * @author Trung Duc
+ * @see 2022/10
+ */
 public class CartItem {
 	private Book book;
 	private int quantity;
@@ -23,30 +30,6 @@ public class CartItem {
 	}
 	public void setPrice(float price) {
 		this.price = price;
-	}
-	
-	private static Scanner sc = new Scanner(System.in);
-	
-	public void addItem(CartItem cartItem,Book book) {
-		cartItem.setBook(book);
-		System.out.println("INPUT QUANTITY: ");
-		int quantity = Integer.parseInt(sc.nextLine());
-		cartItem.setQuantity(quantity);
-		
-		System.out.println("INPUT_PRICE: ");
-		float price = Float.parseFloat(sc.nextLine());
-		cartItem.setPrice(price);
-		
-	}
-
-	public void editItem() {
-		
-		
-	}
-	
-	public void removeItem(String item) {
-		
-		
 	}
 		
 }

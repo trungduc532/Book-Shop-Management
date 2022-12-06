@@ -67,7 +67,7 @@ public class BookSearch {
 	 * @return
 	 * @throws SQLException
 	 */
-	public static final List<Book> searchByBookTitle(Connection conn, String Title) throws SQLException {
+	public static final List<Book> searchByBookTitle(Connection conn, String title) throws SQLException {
 		List<Book> listBook = new ArrayList<>();
 		StringBuilder query = new StringBuilder();
 		query.append("SELECT * ");
@@ -80,7 +80,7 @@ public class BookSearch {
 		ResultSet rs = null;
 		try {
 			ps = conn.prepareStatement(query.toString());
-			ps.setString(1, Title);
+			ps.setString(1, title);
 			rs = ps.executeQuery();
 			int columnIndex = 1;
 			while (rs.next()) {

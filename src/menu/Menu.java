@@ -27,13 +27,14 @@ public class Menu {
 	}
 	
 	public static void menuCustomer() {
-		System.out.println("============================ BOOK ==============================");
+		System.out.println("========================== CUSTOMER ============================");
 		System.out.println("= 1. ADD A CUSTOMER.                                           =");
 		System.out.println("= 2. ADD A LIST CUSTOMER FROM CONSOLE.                         =");
 		System.out.println("= 3. UPDATE CUSTOMER INFORMATION.                              =");
 		System.out.println("= 4. SEARCH BY CUSTOMER ID.                                    =");
 		System.out.println("= 5. SEARCH BY NAME OF CUSTOMER                                =");
 		System.out.println("= 6. DELETE CUSTOMER.                                          =");
+		System.out.println("= 7. RETURN.                                                   =");
 		System.out.println("================================================================");
 	}
 	

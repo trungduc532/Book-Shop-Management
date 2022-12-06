@@ -10,7 +10,9 @@ public class TestFunction {
 		try {
 			final Connection conn = ConnectionDB.getConnectDatabase();
 
-			CustomerManagement.addCustomer(conn);
+//			CustomerManagement.addCustomer(conn);
+			CustomerManagement.addAListCustomerFromConsole(conn);
+			
 		} catch (final Exception e) {
 			e.printStackTrace();
 		}

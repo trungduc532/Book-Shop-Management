@@ -73,7 +73,7 @@ public class BookManagement {
 	public static void addBookWithBookId(Connection conn, int bookId) throws SQLException {
 
 		StringBuilder query = new StringBuilder();
-		Book book = BookManagement.createBook();
+		Book book = createBook();
 		query.append("SET IDENTITY_INSERT BOOK_INFORMATION ON; ");
 		query.append("INSERT INTO BOOK_INFORMATION ");
 		query.append("(BOOK_ID, TITLE, AUTHOR, BOOK_TYPE, PUBLISH_YEAR, PUBLISHER, PRICE)");

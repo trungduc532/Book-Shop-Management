@@ -41,9 +41,9 @@
 //						break;
 //					default:
 //						System.out.println("CHOICE INCORECT.");
-//						System.out.print("DO YOU WANT TO CONTINUE? (Y/N): ");
-//						String answer = scanner.nextLine();
-//						if(answer.equalsIgnoreCase("n"))
+//						Boolean answer = CommonHandle.continueProgram();
+//						if(!answer)
+//							CommonHandle.cleanScreen();
 //							break;
 //				}
 //			}

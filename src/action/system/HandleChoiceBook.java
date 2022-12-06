@@ -73,13 +73,14 @@ public class HandleChoiceBook {
 				CommonHandle.cleanScreen();
 				break;
 			}
-			final boolean exitBookProgram = CommonHandle.continueProgram();
-			if(exitBookProgram) {
+			final boolean continuePro = CommonHandle.continueProgram();
+			if(!continuePro) {
 				CommonHandle.cleanScreen();
 				break;
 			}
 				
 		}
+		ConnectionDB.closeConnectionDate(conn);
 		
 	}
 	

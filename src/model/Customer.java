@@ -1,16 +1,20 @@
+/**
+ * 59102901
+ */
 package model;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
+/**
+ * Customer
+ * 
+ * @author Trung Duc
+ * @see 2022/10
+ */
 public class Customer {
-	private static Scanner sc = new Scanner(System.in);
 	private int customerId;
 	private String name;
 	private String userName;
 	private String password;
 	private String shippingAddress;
-	private String BillingAddress;
+	private String billingAddress;
 	
 	public int getCustomerId() {
 		return customerId;
@@ -43,63 +47,16 @@ public class Customer {
 		this.shippingAddress = shippingAddress;
 	}
 	public String getBillingAddress() {
-		return BillingAddress;
+		return billingAddress;
 	}
 	public void setBillingAddress(String billingAddress) {
-		BillingAddress = billingAddress;
+		this.billingAddress = billingAddress;
 	}
 	
-	public void add(Customer customer) {
-		// INPUT INFORMATION OF BOOK
-		System.out.println("CUSTOMER ID: ");
-		int customerId = Integer.parseInt(sc.nextLine());
-		customer.setCustomerId(customerId);
-
-		System.out.print("NAME: ");
-		String name = sc.nextLine().toUpperCase().trim();
-		customer.setName(name);
-
-		System.out.println("USER NAME: ");
-		String userName = sc.nextLine().toUpperCase().trim();
-		customer.setUserName(userName);
-
-		System.out.print("PASSWORD: ");
-		String passWord = sc.nextLine().trim();
-		customer.setPassword(passWord);
-
-		System.out.println("SHIPPING ADDRESS: ");
-		String shippingAddress = sc.nextLine().toUpperCase().trim();
-		customer.setShippingAddress(shippingAddress);
-
-		System.out.print("BILLING ADDRESS: ");
-		String billingAddress = sc.nextLine().toUpperCase().trim();
-		customer.setBillingAddress(billingAddress);
+	public void showInfoCustomer() {
+		System.out.println("***");
+		System.out.println("CUSTOMER_ID = " + customerId + ", NAME = " + name + ", USER_NAME = " + userName + ", SHIPPING_ADDRESS = " + shippingAddress +
+				"BILLING_ADDRESS = " + billingAddress );
+		System.out.println("***");
 	}
-
-
-//	public void updateCustomer(int customerId, String name) {
-//		Customer newCustomer = search(customerId, name);
-//		if(newCustomer == null) 
-//			add(newCustomer);
-//		else {
-//			newCustomer.setUserName(sc.nextLine().toUpperCase().trim());
-//			newCustomer.setPassword(sc.nextLine().toUpperCase().trim());
-//			newCustomer.setShippingAddress(sc.nextLine().toUpperCase().trim());
-//			System.out.println("UPDATE SUCCESS!");
-//		}
-//	}
-//	
-//	public void remove(int customerId, String name) {
-//		Customer customer = search(customerId, name);
-//		if (customer == null)
-//			System.out.println("THIS CUSTOMER NOT EXITS.");
-//		else {
-//			System.out.println("ARE YOU SURE YOU WANT TO REMOVE THIS CUSTOMER.");
-//			System.out.print("Y/N? : ");
-//			if (sc.nextLine() == "Y")
-//				
-//			System.out.println("DELETED.");
-//		}
-//	}
-//	
 }
