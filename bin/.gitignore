@@ -1,10 +1,4 @@
-/controller/
-/app/
-/menu/
-/sql/
-/model/
-/prepareDataAndDataBase/
 /common/
-/connection/
 /action/
-/customer/
+/prepareDataAndDataBase/
+/controller/

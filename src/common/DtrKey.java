@@ -24,6 +24,9 @@ public class DtrKey {
 	public static final String DATABASE_NAME = "BookShop";
 	public static final String DB_PASSWORD = "1234567890d";
 	
+	// regex password key
+	public static final String PASSWORD_REGEX = "^[a-zA-Z0-9&&(@|#|/|\\]$";
+	
 	
 	public static void printInfo() {
 		System.out.println("|  CART_ID   |      CUSTOMER      |SHIPPING_FEE|     TOTAL     |   PAYMENT_METHOD  |\n");

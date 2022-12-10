@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import action.system.CommonHandle;
 import common.DtrKey;
 import model.Customer;
 
@@ -30,14 +31,19 @@ public class CustomerManagement {
 	 */
 	private static final Customer createCustomer() {
 		Customer customer = new Customer();
+		
 		System.out.print(DtrKey.CUSTOMER_NAME + ": ");
 		customer.setName(scanner.nextLine().toUpperCase().trim());
+		
 		System.out.print(DtrKey.CUSTOMER_USER_NAME + ": ");
 		customer.setUserName(scanner.nextLine().trim());
+		
 		System.out.print(DtrKey.CUSTOMER_PASSWORD + ": ");
-		customer.setPassword(scanner.nextLine().trim());
+		customer.setPassword(CommonHandle.inputPassword());
+		
 		System.out.print(DtrKey.SHIPPING_ADDRESS + ": ");
 		customer.setShippingAddress(scanner.nextLine().toUpperCase().trim());
+		
 		System.out.print(DtrKey.BILLING_ADDRESS + ": ");
 		customer.setBillingAddress(scanner.nextLine().trim().toUpperCase());
 
@@ -47,12 +53,16 @@ public class CustomerManagement {
 	private static Customer createAnewCustomerForUpdate(Customer customer) {
 		System.out.print("NEW NAME: ");
 		customer.setName(scanner.nextLine().trim().toUpperCase());
+		
 		System.out.print("NEW USER NAME: ");
 		customer.setUserName(scanner.nextLine());
+		
 		System.out.print("NEW PASSWORD: ");
-		customer.setPassword(scanner.nextLine().trim());
+		customer.setPassword(CommonHandle.inputPassword());
+		
 		System.out.print("NEW SHIPPING ADDRESS: ");
 		customer.setShippingAddress(scanner.nextLine().trim().toUpperCase());
+		
 		System.out.print("NEW BIILING ADDRESS: ");
 		customer.setBillingAddress(scanner.nextLine());
 		return customer;

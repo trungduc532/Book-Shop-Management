@@ -4,6 +4,9 @@
 package action.system;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
+
+import common.DtrKey;
 
 /**
  * Common handle
@@ -47,5 +50,30 @@ public class CommonHandle {
 			return true;
 		}
 		return false;
+	}
+	
+	/**
+	 * Input Password
+	 */
+	public static boolean checkPassword(String password) {
+		String regex = DtrKey.PASSWORD_REGEX;
+		boolean checkPass = Pattern.matches(regex, password);
+		return checkPass;
+		
+	}
+	
+	/**
+	 * Input password
+	 */
+	public static String inputPassword() {
+		String password = scanner.nextLine();
+		while(!checkPassword(password)) {
+			System.out.println("Uppper & lowercase letters.");
+			System.out.println("At least one number.");
+			System.out.println("At least one capital letter.");
+			System.out.print(DtrKey.CUSTOMER_PASSWORD + "AGGAIN: ");
+			password = scanner.nextLine();
+		}
+		return password;
 	}
 }
